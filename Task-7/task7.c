@@ -2,36 +2,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-double Exp(double x,int n)
+int main()
 {
-    double PowX = x;
-    double sum = 1;
-    double FacI = 1;
-    int i = 1;
-    
-    while(i <= n)
-    {
-        sum += PowX/FacI;
-        
-        printf("%lf %lf %d\n",PowX,FacI,i); 
-        
-        PowX *= x;
-        FacI *= ++i;
+    int n; int c;
+    FILE *f;
+    f = fopen("data.txt","w");
+    for (c = 1; c<= 1000; c++){
+        n = rand()% 1000;
+        fprintf(f,"%d\n",n);
     }
-    return sum;
-}
-
-int main(int argc, char *argv[])
-{
-    
-    Exp(0.0,10); // n =10
-    Exp(4.1,10);
-    Exp(10.0,10);
-    Exp(-0.05,10);
-    Exp(0.0,100); //n =100
-    Exp(4.1,100);
-    Exp(10.0,100);
-    Exp(-0.05,100);
-
-    return 0;
-}
+    fclose(f);
